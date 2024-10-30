@@ -4,29 +4,40 @@
 
 using namespace std;
 
-int main()
+struct Command
 {
-    SetConsoleOutputCP(CP_UTF8);
-    
-    string str = "move 50";
-    string command = ""; //Здесь хранится команда
-    string number_str = "";
-    
-    for(size_t i = 0; i < str.size(); i++)
+  string type;
+  int value;
+} int main()
+{
+  SetConsoleOutputCP(CP_UTF8);
+
+  Command com;
+
+  string str = "move 50";
+  string strCommand = ""; // Здесь хранится команда
+  string number_str = "";
+  int num = 0;
+
+  for (size_t i = 0; i < str.size(); i++)
+  {
+    if (str[i] == ' ')
     {
-        if(str[i] == ' ')
-        {
-            number_str = str.substr(i + 1);
-            break;
-        } else
-        {
-            command += str[i];
-        }
+      number_str = str.substr(i + 1);
+      // break;
     }
-    int num = stoi(number_str); //Здесь хранится значение
+    else
+    {
+      strCommand += str[i];
+    }
 
-    cout << "Команда:" << command << endl;
-    cout << "Значение:" << num << endl;
+    com.type = strCommand;
+    num = stoi(number_str); // Здесь хранится значение
+    com.value = num;
+  }
 
-    return 0;
+  cout << "Команда:" << com.type << endl;
+  cout << "Значение:" << com.value << endl;
+
+  return 0;
 }
