@@ -25,8 +25,8 @@ int main()
     }
     int num = stoi(number_str); //Здесь хранится значение
 
-    cout << "Команда: " << command << endl;
-    cout << "Значение: " << num << endl;
+    cout << "Команда:" << command << endl;
+    cout << "Значение:" << num << endl;
 
     return 0;
 }
