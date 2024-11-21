@@ -4,29 +4,56 @@
 
 using namespace std;
 
+struct Command
+{
+  string type;
+  int value;
+};
+
 int main()
 {
-    SetConsoleOutputCP(CP_UTF8);
-    
-    string str = "move 50";
-    string command = ""; //Здесь хранится команда
-    string number_str = "";
-    
-    for(size_t i = 0; i < str.size(); i++)
+  SetConsoleOutputCP(CP_UTF8);
+
+  Command com[10];
+
+  string str = "move 50;height 30;rotate 40";
+  //string strCommand = ""; // Здесь хранится команда
+  string number_str = "";
+  int num = 0;
+
+  for(int i = 0; i < str.size(); i++)
+  {
+    if(str[i] == ' ')
     {
-        if(str[i] == ' ')
-        {
-            number_str = str.substr(i + 1);
-            break;
-        } else
-        {
-            command += str[i];
-        }
+      do
+      {
+        number_str = str.substr(i + 1); //ограничить значение до ;
+      } while(str[i] != ';');
+    } else if(str[i] == ';')
+    {
+      com[i].value = stoi(str.substr(i + 2));
+    } else{
+      while(str.substr(i) != ";")
+      {
+        com[i].type = str.substr(i);
+      }
     }
-    int num = stoi(number_str); //Здесь хранится значение
+  }
+    
+  //com.type = strCommand;
+  //num = stoi(number_str); // здесь хранится значение
+  //com.value = num;
 
-    cout << "Команда:" << command << endl;
-    cout << "Значение:" << num << endl;
+  for(int i = 0; i < 10; i++) 
+  {
+  cout << "Команда:" << com[i].type << endl;
+  cout << "Значение:" << com[i].value << endl;
+  }
 
-    return 0;
+  //cout << "Команда:" << command << endl;
+  //cout << "Значение:" << num << endl;
+
+  system("pause");
+
+  return 0;
 }
