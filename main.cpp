@@ -10,6 +10,7 @@ struct Command
   int value;
 };
 
+// Hello Nastya
 int main()
 {
   SetConsoleOutputCP(CP_UTF8);
@@ -17,14 +18,9 @@ int main()
   Command com[10];
 
   string str = "move 50;height 30;rotate 40";
-  //string strCommand = ""; // Здесь хранится команда
+  // string strCommand = ""; // Здесь хранится команда
   string number_str = "";
   int num = 0;
-
-  
-
-
-
 
   /*for(int i = 0; i < str.size(); i++)
   {
@@ -44,19 +40,19 @@ int main()
       }
     }
   }*/
-    
-  //com.type = strCommand;
-  //num = stoi(number_str); // здесь хранится значение
-  //com.value = num;
 
-  for(int i = 0; i < 10; i++) 
+  // com.type = strCommand;
+  // num = stoi(number_str); // здесь хранится значение
+  // com.value = num;
+
+  for (int i = 0; i < 10; i++)
   {
-  cout << "Команда:" << com[i].type << endl;
-  cout << "Значение:" << com[i].value << endl;
+    cout << "Команда:" << com[i].type << endl;
+    cout << "Значение:" << com[i].value << endl;
   }
 
-  //cout << "Команда:" << command << endl;
-  //cout << "Значение:" << num << endl;
+  // cout << "Команда:" << command << endl;
+  // cout << "Значение:" << num << endl;
 
   system("pause");
 
